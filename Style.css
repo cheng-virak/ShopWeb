@@ -1,0 +1,143 @@
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+.navbar .container a {
+    color:black;
+    margin: 10px;
+}
+
+.navbar .container .nav-item:hover {
+    background-color:#088178;
+}
+
+.hero-section {
+    background-image: url('Picture/image.png'); 
+    background-size: cover;
+    background-position: top 25% right 0; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-left: 20px; 
+}
+
+.hero-content h4 {
+    padding-bottom: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+
+.custom-navbar {
+    background-color: #E3E6F3 !important; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06); 
+}
+
+
+.product-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+}
+
+
+.product-card {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    transition: 0.2s ease;
+    background-color: #fff;
+    position: relative;
+}
+
+
+.product-card:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+.product-card .img-wrapper {
+    background-color: #f0f2f5; 
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.product-card .card-details {
+    text-align: left;
+    padding: 10px 0 0 0;
+}
+
+
+.product-card .product-title {
+    padding-top: 7px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.product-card .stars i {
+    font-size: 12px;
+    color: #f3b519; 
+}
+
+
+.product-card .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.product-card .price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178; 
+    margin: 0;
+}
+
+
+.product-card .cart-btn {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #e8f6ea;
+    color: #088178;
+    text-align: center;
+    display: inline-block;
+}
+
+.product-card .cart-btn:hover {
+    background-color: #088178;
+    color: #fff;
+}
+#Shop {
+    scroll-margin-top: 80px; 
+}
