@@ -4,13 +4,24 @@
     box-sizing: border-box; 
 }
 
+.navbar{
+    background-color: #cce7d099;
+}
 .navbar .container a {
     color:black;
     margin: 10px;
 }
 
+.navbar .container hr{
+    position: fixed;
+    border: #222;
+    outline: #222;
+    outline-width: 10px;
+}
+
 .navbar .container .nav-item:hover {
-    background-color:#088178;
+    border-radius: 10px;
+    background-color:#0881799c;
 }
 
 .hero-section {
