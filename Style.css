@@ -1,6 +1,5 @@
 /* ==========================================
    C-Shop Modern E-Commerce Stylesheet
-   (Clean, Proportional & Mobile App Bar)
    ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
@@ -183,12 +182,12 @@ h1, h2, h3, h4, h5, h6 {
 .nav-icons-group {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .nav-icon-btn {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background-color: transparent;
     border: none;
@@ -196,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     position: relative;
     cursor: pointer;
     transition: var(--transition);
@@ -211,8 +210,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-badge {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 1px;
+    right: 1px;
     background-color: var(--accent-red);
     color: white;
     font-size: 0.62rem;
@@ -228,7 +227,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   Mobile Bottom Navigation Bar (Phone Bottom Bar)
+   Search Overlay / Modal Styles
+   ========================================== */
+.search-modal-box {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.search-input-field {
+    border: 2px solid var(--border-color);
+    border-radius: 30px;
+    padding: 10px 20px 10px 45px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.search-input-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(8, 129, 120, 0.15);
+    outline: none;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--dark);
+    transition: var(--transition);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.search-result-item:hover {
+    background-color: #f8fafc;
+    transform: translateX(4px);
+    color: var(--primary);
+}
+
+.search-result-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.search-tag-chip {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-tag-chip:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* ==========================================
+   Mobile Bottom Navigation Bar (Phone App Bar)
    ========================================== */
 .mobile-bottom-nav {
     display: none;
@@ -265,11 +332,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     position: relative;
     transition: var(--transition);
-    min-width: 50px;
+    min-width: 48px;
 }
 
 .mobile-nav-item i {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-bottom: 2px;
     transition: transform 0.2s ease;
 }
@@ -285,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-badge {
     position: absolute;
     top: 0;
-    right: 8px;
+    right: 6px;
     background-color: var(--accent-red);
     color: white;
     font-size: 0.58rem;
@@ -449,14 +516,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   Category Filter Tabs
+   Category Filter Tabs & In-Catalog Search
    ========================================== */
 .category-filter-pills {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
 }
 
 .filter-btn {
@@ -478,7 +545,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   Product Cards (Proportional & 2 in a Row on Mobile)
+   Product Cards
    ========================================== */
 .product-card {
     background: #ffffff;
@@ -1068,22 +1135,20 @@ footer a:hover {
     .hero-banner-card img {
         height: 280px;
     }
-    /* Hide top nav collapse on mobile if using bottom nav */
     .navbar .navbar-collapse {
         display: none !important;
     }
     .navbar-toggler {
         display: none !important;
     }
-    /* Show mobile bottom app bar */
     .mobile-bottom-nav {
         display: block !important;
     }
     body {
-        padding-bottom: 65px; /* Extra space for fixed bottom bar */
+        padding-bottom: 65px;
     }
     .back-to-top {
-        bottom: 75px; /* Float above the bottom app bar */
+        bottom: 75px;
         right: 16px;
     }
     .toast-container-custom {
@@ -1114,7 +1179,7 @@ footer a:hover {
         height: 240px;
     }
 
-    /* Make product cards small & compact for 2-in-a-row on mobile */
+    /* Product cards 2 in a row */
     .product-card .img-wrapper {
         height: 135px !important;
     }
@@ -1150,7 +1215,7 @@ footer a:hover {
         left: 6px !important;
     }
     .card-action-overlay {
-        opacity: 1 !important; /* Always visible on touch screens */
+        opacity: 1 !important;
         transform: translateX(0) !important;
         top: 6px !important;
         right: 6px !important;
@@ -1162,7 +1227,7 @@ footer a:hover {
         font-size: 0.72rem !important;
     }
 
-    /* Blog cards compact 2-in-a-row on mobile */
+    /* Blog cards 2 in a row */
     .blog-img-wrap {
         height: 110px !important;
     }
@@ -1186,7 +1251,7 @@ footer a:hover {
         font-size: 0.72rem !important;
     }
 
-    /* Sub Promo Banners 2 in a row on mobile */
+    /* Sub Promo Banners 2 in a row */
     .sub-banner-card {
         min-height: 130px !important;
         padding: 12px !important;
@@ -1203,7 +1268,7 @@ footer a:hover {
         padding: 2px 8px !important;
     }
 
-    /* Feature trust boxes 2 in a row */
+    /* Feature trust boxes */
     .feature-box {
         padding: 4px !important;
     }

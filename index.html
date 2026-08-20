@@ -57,8 +57,11 @@
                         </li>
                     </ul>
 
-                    <!-- Action Icons (Wishlist & Cart) -->
+                    <!-- Action Icons (Search, Wishlist & Cart) -->
                     <div class="nav-icons-group ms-lg-2 mt-2 mt-lg-0">
+                        <a href="javascript:void(0)" class="nav-icon-btn" onclick="openSearchModal()" title="Search Products" aria-label="Search">
+                            <i class="bi bi-search"></i>
+                        </a>
                         <a href="javascript:void(0)" class="nav-icon-btn" onclick="openWishlist()" title="Wishlist" aria-label="Wishlist">
                             <i class="bi bi-heart"></i>
                             <span class="nav-badge" id="wishlistCount">0</span>
@@ -198,6 +201,16 @@
             <span class="badge bg-teal-light text-teal px-3 py-1 rounded-pill fw-semibold mb-1">Summer 2026 Collection</span>
             <h3 class="fw-bold">Featured Products</h3>
             <p class="text-muted small mb-2">Modern designs crafted with premium textiles and unmatched comfort</p>
+        </div>
+
+        <!-- In-Catalog Search Bar -->
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-md-6 col-lg-5">
+                <div class="position-relative">
+                    <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                    <input type="text" id="catalogSearchInput" class="form-control rounded-pill ps-5 pe-4 py-2 border shadow-none" placeholder="Search products by title or category..." onkeyup="handleCatalogSearch(this.value)" style="font-size: 0.85rem;">
+                </div>
+            </div>
         </div>
 
         <!-- Filter Tabs -->
@@ -943,6 +956,46 @@
     </div>
 
     <!-- ==========================================
+         Interactive Live Search Modal
+         ========================================== -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content search-modal-box border-0">
+                <div class="modal-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h6 class="fw-bold mb-0 text-dark"><i class="bi bi-search text-teal me-2"></i>Search C-Shop Products</h6>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="position-relative mb-3">
+                        <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-teal fs-5"></i>
+                        <input type="text" id="liveSearchInput" class="search-input-field" placeholder="Search by product name, category, or style..." onkeyup="performLiveSearch(this.value)">
+                    </div>
+
+                    <!-- Popular Tags -->
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                        <span class="small text-muted fw-semibold">Popular:</span>
+                        <span class="search-tag-chip" onclick="quickSearchTag('Tee')">Tee</span>
+                        <span class="search-tag-chip" onclick="quickSearchTag('Sneakers')">Sneakers</span>
+                        <span class="search-tag-chip" onclick="quickSearchTag('Denim')">Denim</span>
+                        <span class="search-tag-chip" onclick="quickSearchTag('Watch')">Watch</span>
+                        <span class="search-tag-chip" onclick="quickSearchTag('Hoodie')">Hoodie</span>
+                        <span class="search-tag-chip" onclick="quickSearchTag('Sunglasses')">Sunglasses</span>
+                    </div>
+
+                    <!-- Live Results Box -->
+                    <div id="liveSearchResults" class="overflow-auto" style="max-height: 300px;">
+                        <div class="text-center py-4 text-muted small">
+                            <i class="bi bi-search fs-3 text-secondary d-block mb-1"></i>
+                            Type in a keyword above to find items instantly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
          General Information Modal (Terms / Articles)
          ========================================== -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
@@ -1334,14 +1387,93 @@
         }
 
         // Search Filter
-        function filterBySearch() {
-            const input = document.getElementById('navbarSearchInput').value.toLowerCase();
+        // Live Search Modal Controller
+        function openSearchModal() {
+            const modalEl = document.getElementById('searchModal');
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
+            setTimeout(() => {
+                const input = document.getElementById('liveSearchInput');
+                if (input) {
+                    input.focus();
+                    input.value = '';
+                    performLiveSearch('');
+                }
+            }, 300);
+        }
+
+        function quickSearchTag(tag) {
+            const input = document.getElementById('liveSearchInput');
+            if (input) {
+                input.value = tag;
+                performLiveSearch(tag);
+            }
+        }
+
+        function performLiveSearch(query) {
+            const resultsEl = document.getElementById('liveSearchResults');
+            const term = query.trim().toLowerCase();
+
+            if (!term) {
+                resultsEl.innerHTML = `
+                    <div class="text-center py-4 text-muted small">
+                        <i class="bi bi-search fs-3 text-secondary d-block mb-1"></i>
+                        Type in a keyword above to find items instantly.
+                    </div>
+                `;
+                return;
+            }
+
+            const matches = productsDB.filter(p => 
+                p.title.toLowerCase().includes(term) || 
+                p.category.toLowerCase().includes(term) ||
+                p.desc.toLowerCase().includes(term)
+            );
+
+            if (matches.length === 0) {
+                resultsEl.innerHTML = `
+                    <div class="text-center py-4 text-muted small">
+                        <i class="bi bi-emoji-frown fs-3 text-secondary d-block mb-1"></i>
+                        No products found matching "<strong>${query}</strong>". Try searching for "Tee", "Sneakers", or "Jacket".
+                    </div>
+                `;
+                return;
+            }
+
+            resultsEl.innerHTML = matches.map(p => `
+                <div class="search-result-item" onclick="selectSearchResult(${p.id})">
+                    <img src="${p.image}" alt="${p.title}" class="search-result-img">
+                    <div class="flex-grow-1">
+                        <div class="small fw-bold text-dark mb-0">${p.title}</div>
+                        <span class="badge bg-light text-muted border text-uppercase" style="font-size: 0.62rem;">${p.category}</span>
+                    </div>
+                    <div class="text-end">
+                        <div class="text-teal fw-bold">$${p.price}</div>
+                        <span class="small text-muted text-decoration-line-through" style="font-size: 0.72rem;">$${p.oldPrice}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectSearchResult(id) {
+            const searchModalEl = document.getElementById('searchModal');
+            const searchModal = bootstrap.Modal.getInstance(searchModalEl);
+            if (searchModal) searchModal.hide();
+            openQuickView(id);
+        }
+
+        // In-Catalog Live Filter Search
+        function handleCatalogSearch(term) {
+            const input = term.toLowerCase();
             const items = document.querySelectorAll('.product-item');
+            let matchCount = 0;
+
             items.forEach(item => {
                 const title = item.querySelector('.product-title').innerText.toLowerCase();
                 const cat = item.querySelector('.category-name').innerText.toLowerCase();
                 if (title.includes(input) || cat.includes(input)) {
                     item.style.display = 'block';
+                    matchCount++;
                 } else {
                     item.style.display = 'none';
                 }
