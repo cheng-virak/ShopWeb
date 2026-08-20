@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Products | C-Shop</title>
+    <meta name="description" content="Explore the full collection of apparel, sneakers, jackets, and accessories at C-Shop.">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Modern Stylesheet -->
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand text-decoration-none" href="index.html">
+                    <div class="brand-icon">
+                        <i class="bi bi-bag-heart-fill"></i>
+                    </div>
+                    <span class="fw-bold" style="color: #088178;">C-Shop</span>
+                </a>
+
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <i class="bi bi-list fs-3 text-dark"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-1">
+                        <li class="nav-item"><a class="nav-link" href="index.html#Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Deals">Deals</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Blog">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Contact">Contact</a></li>
+                    </ul>
+
+                    <div class="nav-icons-group ms-lg-2 mt-2 mt-lg-0">
+                        <a href="javascript:void(0)" class="nav-icon-btn" onclick="openWishlist()" title="Wishlist">
+                            <i class="bi bi-heart"></i>
+                            <span class="nav-badge" id="wishlistCount">0</span>
+                        </a>
+                        <a href="javascript:void(0)" class="nav-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" title="Shopping Cart">
+                            <i class="bi bi-bag"></i>
+                            <span class="nav-badge" id="cartBadgeCount">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="bg-light py-4" style="margin-top: 60px; border-bottom: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <span class="badge bg-teal-light text-teal px-3 py-1 rounded-pill fw-semibold mb-1">#StayCurious</span>
+            <h2 class="fw-bold mb-1">Shop Full Catalog</h2>
+            <p class="text-muted small mb-0">Discover top trending streetwear, premium footwear, and everyday essentials.</p>
+        </div>
+    </div>
+
+    <!-- Main Catalog Container -->
+    <div class="container my-4">
+        <div class="row g-4">
+            
+            <!-- Left Sidebar Filters -->
+            <div class="col-lg-3">
+                <div class="card border-0 shadow-sm rounded-3 p-3 mb-3">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-funnel text-teal me-1"></i> Categories</h6>
+                    <div class="d-flex flex-column gap-2 small">
+                        <a href="javascript:void(0)" onclick="setCategoryFilter('all')" class="text-decoration-none text-dark fw-bold filter-cat-link">All Products (8)</a>
+                        <a href="javascript:void(0)" onclick="setCategoryFilter('clothing')" class="text-decoration-none text-secondary filter-cat-link">Graphic Tees & Shirts (2)</a>
+                        <a href="javascript:void(0)" onclick="setCategoryFilter('jackets')" class="text-decoration-none text-secondary filter-cat-link">Jackets & Hoodies (2)</a>
+                        <a href="javascript:void(0)" onclick="setCategoryFilter('footwear')" class="text-decoration-none text-secondary filter-cat-link">Sneakers & Shoes (1)</a>
+                        <a href="javascript:void(0)" onclick="setCategoryFilter('accessories')" class="text-decoration-none text-secondary filter-cat-link">Watches & Accessories (3)</a>
+                    </div>
+
+                    <hr class="my-3 text-secondary opacity-25">
+
+                    <h6 class="fw-bold mb-2">Price Filter</h6>
+                    <div class="d-flex align-items-center justify-content-between small text-muted mb-2">
+                        <span>$0</span>
+                        <span id="priceDisplay">$150</span>
+                    </div>
+                    <input type="range" class="form-range" min="30" max="150" step="5" id="priceRange" value="150" oninput="filterByPrice(this.value)">
+
+                    <hr class="my-3 text-secondary opacity-25">
+
+                    <h6 class="fw-bold mb-2">Customer Rating</h6>
+                    <div class="d-flex flex-column gap-1 small">
+                        <label class="d-flex align-items-center gap-2 cursor-pointer">
+                            <input type="radio" name="ratingFilter" checked onclick="filterShopProducts()">
+                            <span>All Ratings</span>
+                        </label>
+                        <label class="d-flex align-items-center gap-2 cursor-pointer">
+                            <input type="radio" name="ratingFilter" onclick="filterShopProducts(4.8)">
+                            <span class="text-warning"><i class="bi bi-star-fill"></i> 4.8 & above</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Promo Card -->
+                <div class="card border-0 rounded-3 p-3 text-white text-center" style="background: linear-gradient(135deg, #088178, #054f4a);">
+                    <i class="bi bi-tag-fill fs-2 mb-1 text-warning"></i>
+                    <h6 class="fw-bold">Summer Promo</h6>
+                    <p class="small opacity-80 mb-2">Use code <strong>SUMMER70</strong> for extra discounts.</p>
+                </div>
+            </div>
+
+            <!-- Products Listing -->
+            <div class="col-lg-9">
+                <!-- Sorting & In-Page Search Bar -->
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 bg-light p-2 px-3 rounded-3 gap-2">
+                    <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 260px;">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text bg-white border-end-0 text-muted ps-2"><i class="bi bi-search"></i></span>
+                            <input type="text" id="shopSearchInput" class="form-control border-start-0 py-1 shadow-none" placeholder="Search products..." onkeyup="filterShopProducts()">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 ms-auto">
+                        <span class="small text-muted" id="resultsCount"><strong>8</strong> Items</span>
+                        <select class="form-select form-select-sm border shadow-none py-1" id="sortSelect" onchange="sortProducts(this.value)" style="width: 140px;">
+                            <option value="featured">Featured</option>
+                            <option value="low-high">Price: Low to High</option>
+                            <option value="high-low">Price: High to Low</option>
+                            <option value="popular">Popularity</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="row g-3" id="shopProductsGrid">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+
+                <!-- Pagination -->
+                <nav class="mt-4">
+                    <ul class="pagination pagination-sm justify-content-center">
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="Contact">
+        <div class="container text-md-start text-center">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-2 justify-content-md-start justify-content-center">
+                        <div class="brand-icon"><i class="bi bi-bag-heart-fill"></i></div>
+                        <h4 class="fw-bold mb-0 text-white">C-Shop</h4>
+                    </div>
+                    <p class="text-secondary small mb-2">Your premier destination for contemporary apparel and lifestyle streetwear.</p>
+                    <p class="mb-1 text-secondary small"><strong class="text-white">Phone:</strong> +855 23 883 456</p>
+                </div>
+                <div class="col-6 col-sm-6 col-lg-2">
+                    <h6 class="fw-bold mb-2 text-white">Quick Links</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-1 small">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-6 col-lg-2">
+                    <h6 class="fw-bold mb-2 text-white">Customer Care</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-1 small">
+                        <li><a href="javascript:void(0)" onclick="openWishlist()">My Wishlist</a></li>
+                        <li><a href="contact.html">Help & Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h6 class="fw-bold mb-2 text-white">Secured Payment</h6>
+                    <div class="d-flex justify-content-md-start justify-content-center gap-3 fs-4 text-secondary">
+                        <i class="bi bi-credit-card-2-back hover-teal"></i>
+                        <i class="bi bi-wallet2 hover-teal"></i>
+                        <i class="bi bi-paypal hover-teal"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3 border-secondary opacity-25">
+            <div class="text-center">
+                <p class="text-secondary small mb-0">&copy; 2026 <strong class="text-white">C-Shop</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom py-2">
+            <h6 class="offcanvas-title fw-bold mb-0"><i class="bi bi-bag-check-fill text-teal me-1"></i> Your Shopping Bag (<span id="cartTotalItemsCount">2</span>)</h6>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column p-3">
+            <div class="cart-items-container flex-grow-1 overflow-auto" id="cartItemsList"></div>
+            <div class="border-top pt-2 mt-auto">
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span>Total Amount:</span>
+                    <span class="text-teal fw-bold" id="cartTotalAmount">$177.00</span>
+                </div>
+                <a href="cart.html" class="btn btn-primary-custom w-100 py-2">View Cart & Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav d-lg-none" aria-label="Mobile Navigation">
+        <div class="nav-row">
+            <a href="index.html#Home" class="mobile-nav-item">
+                <i class="bi bi-house-door"></i>
+                <span>Home</span>
+            </a>
+            <a href="shop.html" class="mobile-nav-item active">
+                <i class="bi bi-grid"></i>
+                <span>Shop</span>
+            </a>
+            <a href="index.html#Deals" class="mobile-nav-item">
+                <i class="bi bi-lightning-charge"></i>
+                <span>Deals</span>
+            </a>
+            <a href="blog.html" class="mobile-nav-item">
+                <i class="bi bi-journal-text"></i>
+                <span>Blog</span>
+            </a>
+            <a href="javascript:void(0)" class="mobile-nav-item position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                <i class="bi bi-bag"></i>
+                <span class="mobile-nav-badge">2</span>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const productsDB = [
+            { id: 1, title: "Cartoon Astronaut Heavyweight Tee", category: "clothing", categoryName: "Graphic Tees", price: 58, oldPrice: 78, tag: "sale", tagText: "-25%", rating: 5.0, reviews: 124, image: "Picture/s-l400.jpg" },
+            { id: 2, title: "Retro Urban Air Sneakers", category: "footwear", categoryName: "Footwear", price: 119, oldPrice: 145, tag: "hot", tagText: "HOT", rating: 4.8, reviews: 98, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" },
+            { id: 3, title: "Vintage Washed Denim Jacket", category: "jackets", categoryName: "Jackets", price: 89, oldPrice: 110, tag: "new", tagText: "NEW", rating: 4.9, reviews: 87, image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop" },
+            { id: 4, title: "Minimalist Chronograph Watch", category: "accessories", categoryName: "Accessories", price: 149, oldPrice: 180, tag: "popular", tagText: "POPULAR", rating: 5.0, reviews: 215, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop" },
+            { id: 5, title: "Relaxed Linen Oxford Shirt", category: "clothing", categoryName: "Shirts", price: 49, oldPrice: 65, tag: "new", tagText: "NEW", rating: 4.7, reviews: 64, image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop" },
+            { id: 6, title: "Sage Heavyweight Fleece Hoodie", category: "jackets", categoryName: "Hoodies", price: 74, oldPrice: 92, tag: "hot", tagText: "HOT", rating: 4.9, reviews: 153, image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop" },
+            { id: 7, title: "Tortoise Acetate UV400 Sunglasses", category: "accessories", categoryName: "Eyewear", price: 39, oldPrice: 60, tag: "sale", tagText: "-35%", rating: 4.8, reviews: 78, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop" },
+            { id: 8, title: "Matte Urban Commuter Backpack", category: "accessories", categoryName: "Bags", price: 65, oldPrice: 85, tag: "new", tagText: "NEW", rating: 4.9, reviews: 112, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" }
+        ];
+
+        let currentCategory = 'all';
+        let currentMaxPrice = 150;
+        let cart = [
+            { id: 1, title: "Cartoon Astronaut Heavyweight Tee", price: 58, qty: 1, image: "Picture/s-l400.jpg" },
+            { id: 2, title: "Retro Urban Air Sneakers", price: 119, qty: 1, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" }
+        ];
+        let wishlist = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderShopProducts();
+            renderCart();
+        });
+
+        function renderShopProducts() {
+            const grid = document.getElementById('shopProductsGrid');
+            const searchVal = document.getElementById('shopSearchInput')?.value.toLowerCase() || '';
+
+            let filtered = productsDB.filter(p => {
+                const matchCategory = (currentCategory === 'all' || p.category === currentCategory);
+                const matchPrice = p.price <= currentMaxPrice;
+                const matchSearch = p.title.toLowerCase().includes(searchVal) || p.categoryName.toLowerCase().includes(searchVal);
+                return matchCategory && matchPrice && matchSearch;
+            });
+
+            document.getElementById('resultsCount').innerHTML = `Showing <strong>${filtered.length}</strong> Products`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-12 text-center py-5 text-muted"><i class="bi bi-search fs-2 mb-2 d-block"></i>No products match your selected filters.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(product => `
+                <div class="col-6 col-md-4">
+                    <div class="product-card">
+                        <span class="badge-tag ${product.tag}">${product.tagText}</span>
+                        <div class="card-action-overlay">
+                            <button class="action-btn-circle ${wishlist.includes(product.id) ? 'active-wishlist' : ''}" onclick="toggleWishlist(${product.id}, this)" title="Wishlist">
+                                <i class="bi ${wishlist.includes(product.id) ? 'bi-heart-fill text-danger' : 'bi-heart'}"></i>
+                            </button>
+                            <a href="product-details.html?id=${product.id}" class="action-btn-circle" title="View Details">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                        </div>
+                        <div class="img-wrapper">
+                            <a href="product-details.html?id=${product.id}">
+                                <img src="${product.image}" alt="${product.title}" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="card-details">
+                            <div>
+                                <span class="category-name">${product.categoryName}</span>
+                                <a href="product-details.html?id=${product.id}" class="product-title">${product.title}</a>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="rating-count">(${product.reviews})</span>
+                                </div>
+                            </div>
+                            <div class="card-bottom">
+                                <div class="price-group">
+                                    <h4 class="price">$${product.price}</h4>
+                                    <span class="old-price">$${product.oldPrice}</span>
+                                </div>
+                                <button class="add-cart-btn" onclick="addToCart(${product.id}, '${product.title}', ${product.price}, '${product.image}')" title="Add to Cart">
+                                    <i class="bi bi-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setCategoryFilter(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.filter-cat-link').forEach(link => link.classList.remove('fw-bold', 'text-dark'));
+            event.target.classList.add('fw-bold', 'text-dark');
+            renderShopProducts();
+        }
+
+        function filterByPrice(val) {
+            currentMaxPrice = parseInt(val);
+            document.getElementById('priceDisplay').innerText = `$${val}`;
+            renderShopProducts();
+        }
+
+        function filterShopProducts() {
+            renderShopProducts();
+        }
+
+        function sortProducts(type) {
+            if (type === 'low-high') {
+                productsDB.sort((a, b) => a.price - b.price);
+            } else if (type === 'high-low') {
+                productsDB.sort((a, b) => b.price - a.price);
+            } else if (type === 'popular') {
+                productsDB.sort((a, b) => b.reviews - a.reviews);
+            }
+            renderShopProducts();
+        }
+
+        function renderCart() {
+            const listEl = document.getElementById('cartItemsList');
+            const totalEl = document.getElementById('cartTotalAmount');
+            const badgeEl = document.getElementById('cartBadgeCount');
+            const countEl = document.getElementById('cartTotalItemsCount');
+
+            if (!listEl) return;
+            let subtotal = 0;
+            let totalQty = 0;
+
+            if (cart.length === 0) {
+                listEl.innerHTML = `<div class="text-center py-4 text-muted small">Your bag is empty.</div>`;
+                totalEl.innerText = "$0.00";
+                badgeEl.innerText = "0";
+                countEl.innerText = "0";
+                return;
+            }
+
+            listEl.innerHTML = cart.map((item, idx) => {
+                subtotal += item.price * item.qty;
+                totalQty += item.qty;
+                return `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-bold text-dark small text-truncate" style="max-width: 140px; font-size: 0.8rem;">${item.title}</h6>
+                            <div class="text-teal fw-bold small">$${item.price} x ${item.qty}</div>
+                        </div>
+                        <button class="btn btn-link text-danger p-0 small" onclick="removeCartItem(${idx})"><i class="bi bi-trash3"></i></button>
+                    </div>
+                `;
+            }).join('');
+
+            totalEl.innerText = `$${subtotal.toFixed(2)}`;
+            badgeEl.innerText = totalQty;
+            countEl.innerText = totalQty;
+        }
+
+        function addToCart(id, title, price, image) {
+            const item = cart.find(c => c.id === id);
+            if (item) item.qty += 1;
+            else cart.push({ id, title, price, qty: 1, image });
+            renderCart();
+            showToast(`Added <strong>${title}</strong> to cart!`);
+        }
+
+        function removeCartItem(idx) {
+            cart.splice(idx, 1);
+            renderCart();
+        }
+
+        function toggleWishlist(id, btn) {
+            const idx = wishlist.indexOf(id);
+            if (idx > -1) wishlist.splice(idx, 1);
+            else wishlist.push(id);
+            document.getElementById('wishlistCount').innerText = wishlist.length;
+            renderShopProducts();
+            showToast(idx > -1 ? 'Removed from Wishlist' : 'Added to Wishlist!');
+        }
+
+        function openWishlist() {
+            showToast(`You have ${wishlist.length} item(s) in your Wishlist.`);
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const t = document.createElement('div');
+            t.className = 'toast-custom';
+            t.innerHTML = `<i class="bi bi-check-circle-fill text-success fs-5"></i><div class="small">${msg}</div>`;
+            container.appendChild(t);
+            setTimeout(() => t.remove(), 2500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | C-Shop</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand text-decoration-none" href="index.html">
+                    <div class="brand-icon"><i class="bi bi-bag-heart-fill"></i></div>
+                    <span class="fw-bold" style="color: #088178;">C-Shop</span>
+                </a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <i class="bi bi-list fs-3 text-dark"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-1">
+                        <li class="nav-item"><a class="nav-link" href="index.html#Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Shop">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Deals">Deals</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Blog">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html#About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Contact">Contact</a></li>
+                    </ul>
+                    <div class="nav-icons-group">
+                        <a href="javascript:void(0)" class="nav-icon-btn" onclick="alert('You have 0 saved items in your Wishlist.')" title="Wishlist">
+                            <i class="bi bi-heart"></i>
+                            <span class="nav-badge">0</span>
+                        </a>
+                        <a href="cart.html" class="nav-icon-btn" title="Shopping Cart">
+                            <i class="bi bi-bag"></i>
+                            <span class="nav-badge">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="bg-light py-4" style="margin-top: 60px; border-bottom: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <span class="badge bg-teal-light text-teal px-3 py-1 rounded-pill fw-semibold mb-1">#WhoWeAre</span>
+            <h2 class="fw-bold mb-1">About C-Shop</h2>
+            <p class="text-muted small mb-0">Crafting quality everyday streetwear & apparel with conscious craftsmanship.</p>
+        </div>
+    </div>
+
+    <!-- About Content -->
+    <div class="container my-5">
+        <div class="row align-items-center g-5 mb-5">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded-3 shadow-sm" alt="Store Atmosphere">
+            </div>
+            <div class="col-lg-6">
+                <span class="badge bg-teal-light text-teal px-2 py-1 rounded-pill fw-semibold mb-2 small">Our Mission</span>
+                <h3 class="fw-bold mb-3">Redefining Everyday Wardrobe Essentials</h3>
+                <p class="text-secondary small mb-3">Founded in 2026, C-Shop bridges the gap between contemporary runway aesthetics and everyday accessible comfort. We believe looking great should never require compromise on comfort or sustainability.</p>
+                <p class="text-secondary small mb-4">Every piece in our catalog is engineered with durable ring-spun textiles, reinforced stitching, and timeless silhouettes that outlive fleeting seasonal micro-trends.</p>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="p-3 bg-light rounded-3 text-center">
+                            <h4 class="fw-bold text-teal mb-0">15,000+</h4>
+                            <small class="text-muted">Happy Shoppers</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 bg-light rounded-3 text-center">
+                            <h4 class="fw-bold text-teal mb-0">99.4%</h4>
+                            <small class="text-muted">Satisfaction Rate</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="Contact">
+        <div class="container text-center text-secondary small py-3">
+            <p class="mb-0">&copy; 2026 <strong class="text-white">C-Shop</strong>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav d-lg-none" aria-label="Mobile Navigation">
+        <div class="nav-row">
+            <a href="index.html#Home" class="mobile-nav-item">
+                <i class="bi bi-house-door"></i>
+                <span>Home</span>
+            </a>
+            <a href="shop.html" class="mobile-nav-item">
+                <i class="bi bi-grid"></i>
+                <span>Shop</span>
+            </a>
+            <a href="index.html#Deals" class="mobile-nav-item">
+                <i class="bi bi-lightning-charge"></i>
+                <span>Deals</span>
+            </a>
+            <a href="blog.html" class="mobile-nav-item">
+                <i class="bi bi-journal-text"></i>
+                <span>Blog</span>
+            </a>
+            <a href="cart.html" class="mobile-nav-item position-relative">
+                <i class="bi bi-bag"></i>
+                <span class="mobile-nav-badge">2</span>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

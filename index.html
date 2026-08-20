@@ -3,177 +3,538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-Shop</title>
+    <title>C-Shop | Premium Modern Fashion & Apparel</title>
+    <meta name="description" content="Discover trendy streetwear, essentials, footwear, and accessories at C-Shop. Enjoy super value deals up to 70% off with fast worldwide shipping.">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Style.css">
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Modern Stylesheet -->
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    
-    <section class="hero-section" id="Home">
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#"><h4 class="fw-bold" style="color: #088178;">C-Shop</h4></a>
 
-                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                    <i class="navbar-toggler-icon"></i>
+    <!-- ==========================================
+         Header & Navigation Bar
+         ========================================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNavbar">
+            <div class="container">
+                <!-- Brand Logo -->
+                <a class="navbar-brand text-decoration-none" href="#Home">
+                    <div class="brand-icon">
+                        <i class="bi bi-bag-heart-fill"></i>
+                    </div>
+                    <span class="fw-bold" style="color: #088178;">C-Shop</span>
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-3 text-dark"></i>
                 </button>
 
-                <hr class="text-secondary opacity-25">
-
+                <!-- Navigation Links -->
                 <div class="collapse navbar-collapse" id="navMenu">
-                    <ul class="navbar-nav ms-auto">
-
+                    <!-- Navigation Items -->
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-1">
                         <li class="nav-item">
-                            <a class="nav-link" href="#Home">
-                                <i class="bi bi-house d-lg-none"></i> 
-                                <span class="ms-1">Home</span>
-                            </a>
+                            <a class="nav-link active" href="#Home">Home</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#Shop">
-                                <i class="bi bi-cart3 d-lg-none"></i> 
-                                <span class="ms-1 ">Shope</span>
-                            </a>
+                            <a class="nav-link" href="#Shop">Shop</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#Blog">
-                                <i class="bi bi-journal-text d-lg-none"></i> 
-                                <span class="ms-1">Blog</span>
-                            </a>
+                            <a class="nav-link" href="#Deals">Deals</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#About">
-                                <i class="bi bi-info-circle d-lg-none"></i> 
-                                <span class="ms-1">About</span>
-                            </a>
+                            <a class="nav-link" href="#Blog">Blog</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#Contect">
-                                <i class="bi bi-envelope d-lg-none"></i> 
-                                <span class="ms-1">Contect</span>
-                            </a>
+                            <a class="nav-link" href="#About">About</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#Settings">
-                                <i class="bi bi bi-bag"></i> 
-                                <span class="ms-1 d-lg-none">Cart</span>
-                            </a>
+                            <a class="nav-link" href="#Contact">Contact</a>
                         </li>
                     </ul>
+
+                    <!-- Action Icons (Wishlist & Cart) -->
+                    <div class="nav-icons-group ms-lg-2 mt-2 mt-lg-0">
+                        <a href="javascript:void(0)" class="nav-icon-btn" onclick="openWishlist()" title="Wishlist" aria-label="Wishlist">
+                            <i class="bi bi-heart"></i>
+                            <span class="nav-badge" id="wishlistCount">0</span>
+                        </a>
+                        <a href="javascript:void(0)" class="nav-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" title="Shopping Cart" aria-label="Cart">
+                            <i class="bi bi-bag"></i>
+                            <span class="nav-badge" id="cartBadgeCount">2</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
-        <div class="container hero-content">
-            <h4>Trade-in-offer</h4>
-            <h1>Super value deals</h1>
-            <h1 class="text-teal">On all products</h1>
-            <p>Save more with coupons & up to 70% off!</p>
-            <li class="nav-item d-flex align-items-center ms-2">
-                <button class="btn btn-success " onclick="scrollToShop()">
-                    Shop Now
-                </button>
-            </li>
+    </header>
+
+    <!-- ==========================================
+         Hero Section
+         ========================================== -->
+    <section class="hero-section" id="Home">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <div class="hero-tag">
+                        <i class="bi bi-stars text-warning"></i>
+                        <span>NEW SEASON 2026 COLLECTION</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Super Value Deals <br>
+                        <span class="text-teal">On All Products</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Discover curated everyday streetwear, breathable fabrics, and high-fashion essentials. Save more with verified coupons & up to <strong>70% off</strong>!
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="shop.html" class="btn btn-primary-custom">
+                            <i class="bi bi-bag-check-fill"></i> Shop Now
+                        </a>
+                        <a href="index.html#Deals" class="btn btn-outline-custom">
+                            <i class="bi bi-percent"></i> View Offers
+                        </a>
+                    </div>
+
+                    <!-- Customer Social Proof Strip -->
+                    <div class="d-flex align-items-center gap-2 mt-3 pt-1">
+                        <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.75rem;">
+                            <i class="bi bi-star-fill text-dark me-1"></i> 4.9 / 5.0
+                        </span>
+                        <div class="text-muted" style="font-size: 0.8rem;">
+                            Trusted by <strong>15,000+</strong> shoppers worldwide
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-banner-card">
+                        <img src="Picture/image.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop';" alt="Summer Fashion Collection">
+                        
+                        <!-- Floating Badge 1 -->
+                        <div class="hero-floating-badge">
+                            <div class="rounded-circle bg-teal-light p-1 px-2 text-teal">
+                                <i class="bi bi-shield-check fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold" style="font-size: 0.82rem;">100% Authentic</h6>
+                                <small class="text-muted" style="font-size: 0.72rem;">Quality Guarantee</small>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 2 -->
+                        <div class="hero-floating-badge-2">
+                            <i class="bi bi-fire me-1"></i> Up to 70% OFF
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="product-section container my-5 py-5" id="Shop">
-        <div class="text-center mb-5">
-            <h2>Featured Products</h2>
-            <p class="text-muted">Summer Collection New Modern Design</p>
+    <!-- ==========================================
+         Trust & Features Strip
+         ========================================== -->
+    <section class="features-strip">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <div class="feature-icon-wrap">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h6>Free Shipping</h6>
+                            <p>On orders over $50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <div class="feature-icon-wrap">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h6>30 Days Return</h6>
+                            <p>Hassle-free guarantee</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <div class="feature-icon-wrap">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h6>Secure Payment</h6>
+                            <p>100% encrypted & safe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature-box">
+                        <div class="feature-icon-wrap">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <div class="feature-info">
+                            <h6>24/7 Support</h6>
+                            <p>Dedicated assistance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         Featured Products Section
+         ========================================== -->
+    <section class="product-section container my-4 py-2" id="Shop">
+        <div class="text-center mb-3">
+            <span class="badge bg-teal-light text-teal px-3 py-1 rounded-pill fw-semibold mb-1">Summer 2026 Collection</span>
+            <h3 class="fw-bold">Featured Products</h3>
+            <p class="text-muted small mb-2">Modern designs crafted with premium textiles and unmatched comfort</p>
         </div>
 
-        <div class="row g-4">
+        <!-- Filter Tabs -->
+        <div class="category-filter-pills">
+            <button class="filter-btn active" onclick="filterProducts('all', this)">All Items</button>
+            <button class="filter-btn" onclick="filterProducts('clothing', this)">Clothing</button>
+            <button class="filter-btn" onclick="filterProducts('jackets', this)">Jackets & Hoodies</button>
+            <button class="filter-btn" onclick="filterProducts('footwear', this)">Footwear</button>
+            <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="row g-3" id="productGrid">
             
-            <div class="col-12 col-md-6 col-lg-3">
+            <!-- Product Card 1 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="clothing">
                 <div class="product-card">
+                    <span class="badge-tag sale">-25%</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(1, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(1)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     <div class="img-wrapper">
-                        <img src="Picture/s-l400.jpg" alt="Product" class="img-fluid">
+                        <img src="Picture/s-l400.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop';" alt="Cartoon Astronaut Graphic Tee" class="img-fluid">
                     </div>
                     <div class="card-details">
-                        <h5 class="product-title">Cartoon Astronaut T-Shirts</h5>
-                        <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <div>
+                            <span class="category-name">Graphic Tees</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(1)" class="product-title">Cartoon Astronaut Heavyweight Tee</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(124)</span>
+                            </div>
                         </div>
                         <div class="card-bottom">
-                            <h4 class="price">$78</h4>
-                            <a href="#" class="cart-btn"><i class="bi bi-cart3"></i></a>
+                            <div class="price-group">
+                                <h4 class="price">$58</h4>
+                                <span class="old-price">$78</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(1, 'Cartoon Astronaut Heavyweight Tee', 58, 'Picture/s-l400.jpg')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-3">
+            <!-- Product Card 2 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="footwear">
                 <div class="product-card">
+                    <span class="badge-tag hot">HOT</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(2, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(2)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     <div class="img-wrapper">
-                        <img src="Picture/s-l400.jpg" alt="Product" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" alt="Retro Athletic Sneakers" class="img-fluid">
                     </div>
                     <div class="card-details">
-                        <h5 class="product-title">Cartoon Astronaut T-Shirts</h5>
-                        <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <div>
+                            <span class="category-name">Footwear</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(2)" class="product-title">Retro Urban Air Sneakers</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="rating-count">(98)</span>
+                            </div>
                         </div>
                         <div class="card-bottom">
-                            <h4 class="price">$78</h4>
-                            <a href="#" class="cart-btn"><i class="bi bi-cart3"></i></a>
+                            <div class="price-group">
+                                <h4 class="price">$119</h4>
+                                <span class="old-price">$145</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(2, 'Retro Urban Air Sneakers', 119, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Product Card 3 -->
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="jackets">
                 <div class="product-card">
+                    <span class="badge-tag new">NEW</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(3, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(3)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     <div class="img-wrapper">
-                        <img src="Picture/s-l400.jpg" alt="Product" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop" alt="Vintage Washed Denim Jacket" class="img-fluid">
                     </div>
                     <div class="card-details">
-                        <h5 class="product-title">Cartoon Astronaut T-Shirts</h5>
-                        <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <div>
+                            <span class="category-name">Jackets</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(3)" class="product-title">Vintage Washed Denim Jacket</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(87)</span>
+                            </div>
                         </div>
                         <div class="card-bottom">
-                            <h4 class="price">$78</h4>
-                            <a href="#" class="cart-btn"><i class="bi bi-cart3"></i></a>
+                            <div class="price-group">
+                                <h4 class="price">$89</h4>
+                                <span class="old-price">$110</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(3, 'Vintage Washed Denim Jacket', 89, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-3">
+            <!-- Product Card 4 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="accessories">
                 <div class="product-card">
+                    <span class="badge-tag popular">POPULAR</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(4, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(4)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     <div class="img-wrapper">
-                        <img src="Picture/s-l400.jpg" alt="Product" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop" alt="Minimalist Chrono Watch" class="img-fluid">
                     </div>
                     <div class="card-details">
-                        <h5 class="product-title">Cartoon Astronaut T-Shirts</h5>
-                        <div class="stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <div>
+                            <span class="category-name">Accessories</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(4)" class="product-title">Minimalist Chronograph Watch</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(215)</span>
+                            </div>
                         </div>
                         <div class="card-bottom">
-                            <h4 class="price">$78</h4>
-                            <a href="#" class="cart-btn"><i class="bi bi-cart3"></i></a>
+                            <div class="price-group">
+                                <h4 class="price">$149</h4>
+                                <span class="old-price">$180</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(4, 'Minimalist Chronograph Watch', 149, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="clothing">
+                <div class="product-card">
+                    <span class="badge-tag new">NEW</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(5, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(5)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop" alt="Casual Linen Oxford Shirt" class="img-fluid">
+                    </div>
+                    <div class="card-details">
+                        <div>
+                            <span class="category-name">Shirts</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(5)" class="product-title">Relaxed Linen Oxford Shirt</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="rating-count">(64)</span>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="price-group">
+                                <h4 class="price">$49</h4>
+                                <span class="old-price">$65</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(5, 'Relaxed Linen Oxford Shirt', 49, 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="jackets">
+                <div class="product-card">
+                    <span class="badge-tag hot">HOT</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(6, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(6)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop" alt="Premium Sage Fleece Hoodie" class="img-fluid">
+                    </div>
+                    <div class="card-details">
+                        <div>
+                            <span class="category-name">Hoodies</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(6)" class="product-title">Sage Heavyweight Fleece Hoodie</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(153)</span>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="price-group">
+                                <h4 class="price">$74</h4>
+                                <span class="old-price">$92</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(6, 'Sage Heavyweight Fleece Hoodie', 74, 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 7 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="accessories">
+                <div class="product-card">
+                    <span class="badge-tag sale">-35%</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(7, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(7)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop" alt="Polarized UV Sunglasses" class="img-fluid">
+                    </div>
+                    <div class="card-details">
+                        <div>
+                            <span class="category-name">Eyewear</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(7)" class="product-title">Tortoise Acetate UV400 Sunglasses</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="rating-count">(78)</span>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="price-group">
+                                <h4 class="price">$39</h4>
+                                <span class="old-price">$60</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(7, 'Tortoise Acetate UV400 Sunglasses', 39, 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 8 -->
+            <div class="col-6 col-md-4 col-lg-3 product-item" data-category="accessories">
+                <div class="product-card">
+                    <span class="badge-tag new">NEW</span>
+                    <div class="card-action-overlay">
+                        <button class="action-btn-circle" onclick="toggleWishlist(8, this)" title="Add to Wishlist">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="action-btn-circle" onclick="openQuickView(8)" title="Quick View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" alt="Waterproof Commuter Backpack" class="img-fluid">
+                    </div>
+                    <div class="card-details">
+                        <div>
+                            <span class="category-name">Bags</span>
+                            <a href="javascript:void(0)" onclick="openQuickView(8)" class="product-title">Matte Urban Commuter Backpack</a>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(112)</span>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="price-group">
+                                <h4 class="price">$65</h4>
+                                <span class="old-price">$85</span>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(8, 'Matte Urban Commuter Backpack', 65, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop')" title="Add to Cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -182,143 +543,876 @@
         </div>
     </section>
 
+    <!-- ==========================================
+         Promotional Deal & Countdown Banner
+         ========================================== -->
+    <section class="container" id="Deals">
+        <div class="promo-banner-section text-center">
+            <div class="container py-1">
+                <span class="badge bg-danger px-3 py-1 rounded-pill fw-bold text-uppercase mb-2">Limited Flash Sale</span>
+                <h3 class="fw-bold text-white mb-1">Deal of the Season</h3>
+                <p class="text-light mb-2 opacity-80 small">Get up to <strong class="text-warning">70% OFF</strong> on all Summer Apparel & Footwear</p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-box">
+                    <div class="time-card">
+                        <div class="number" id="timerDays">02</div>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="time-card">
+                        <div class="number" id="timerHours">18</div>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="time-card">
+                        <div class="number" id="timerMins">45</div>
+                        <div class="label">Mins</div>
+                    </div>
+                    <div class="time-card">
+                        <div class="number" id="timerSecs">20</div>
+                        <div class="label">Secs</div>
+                    </div>
+                </div>
 
-<section id="Blog" class="container my-5 py-4">
-    <div class="mb-4 text-center">
-        <h2 class="fw-bold text-dark">From Our Blog</h2>
-        <p class="text-muted">Latest fashion trends and style guides</p>
-        <hr class="text-secondary opacity-25">
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-2 g-5">
-        
-        <div class="col">
-            <div class="mb-3">
-                <img src="Picture/s-l400.jpg" alt="Minimalist Streetwear" class="img-fluid rounded-2 w-100 object-fit-cover" style="height: 250px;">
+                <div class="mt-3">
+                    <a href="#Shop" class="btn btn-primary-custom px-3 py-2">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> Grab Deal Now
+                    </a>
+                </div>
             </div>
-            <p class="text-secondary small mb-1">June 12, 2026</p>
-            <h4 class="fw-bold text-dark fs-5">The Ultimate Guide to Minimalist Streetwear</h4>
-            <p class="text-muted small">Discover how to combine simple silhouettes, neutral tones, and statement accessories to construct a high-fashion wardrobe without breaking the bank.</p>
-            <a href="#" class="text-success text-decoration-none fw-bold small">Read Full Article &rarr;</a>
         </div>
 
-        <div class="col">
-            <div class="mb-3">
-                <img src="Picture/s-l400.jpg" alt="Summer Essentials" class="img-fluid rounded-2 w-100 object-fit-cover" style="height: 250px;">
+        <!-- 2 Sub Category Promo Banners -->
+        <div class="row g-3">
+            <div class="col-6 col-md-6">
+                <div class="sub-banner-card" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop');">
+                    <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold mb-1 align-self-start small">Crazy Deals</span>
+                    <h4 class="fw-bold mb-1">Buy 1 Get 1 Free</h4>
+                    <p class="text-light opacity-90 small mb-2">The best classic dress is on sale at C-Shop</p>
+                    <a href="#Shop" class="btn btn-outline-light btn-sm rounded-pill align-self-start px-3 py-1">Learn More</a>
+                </div>
             </div>
-            <p class="text-secondary small mb-1">June 08, 2026</p>
-            <h4 class="fw-bold text-dark fs-5">10 Summer Essentials You Need in Your Closet</h4>
-            <p class="text-muted small">Explore the must-have lightweight layers, breathable fabrics, and key footwear pieces required to survive the heat in absolute comfort and style.</p>
-            <a href="#" class="text-success text-decoration-none fw-bold small">Read Full Article &rarr;</a>
+            <div class="col-6 col-md-6">
+                <div class="sub-banner-card" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop');">
+                    <span class="badge bg-teal-light text-teal px-2 py-1 rounded-pill fw-bold mb-1 align-self-start small">Spring/Summer</span>
+                    <h4 class="fw-bold mb-1">Upcoming Season</h4>
+                    <p class="text-light opacity-90 small mb-2">The best stylish collection for modern lifestyle</p>
+                    <a href="#Shop" class="btn btn-outline-light btn-sm rounded-pill align-self-start px-3 py-1">Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         Blog & Style Guides Section
+         ========================================== -->
+    <section id="Blog" class="container my-4 py-2">
+        <div class="text-center mb-4">
+            <span class="badge bg-teal-light text-teal px-3 py-1 rounded-pill fw-semibold mb-1">Fashion Editorial</span>
+            <h3 class="fw-bold">From Our Style Blog</h3>
+            <p class="text-muted small mb-2">Latest fashion trends, style guides, and sustainable styling tips</p>
         </div>
 
-        <div class="col">
-            <div class="mb-3">
-                <img src="Picture/s-l400.jpg" alt="Sustainable Fashion" class="img-fluid rounded-2 w-100 object-fit-cover" style="height: 250px;">
+        <div class="row g-3">
+            
+            <!-- Blog Card -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop" alt="Minimalist Streetwear Outfit">
+                        <span class="blog-badge">Streetwear</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i> June 12, 2026</span>
+                            <span><i class="bi bi-clock me-1"></i> 4 min read</span>
+                        </div>
+                        <h4 class="blog-title">The Ultimate Guide to Minimalist Streetwear</h4>
+                        <p class="blog-excerpt">Discover how to combine simple silhouettes, neutral tones, and statement footwear to build an effortless wardrobe.</p>
+                        <a href="javascript:void(0)" onclick="readArticle('The Ultimate Guide to Minimalist Streetwear')" class="read-more-link">
+                            Read Full Article <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="text-secondary small mb-1">May 29, 2026</p>
-            <h4 class="fw-bold text-dark fs-5">Why Sustainable Fashion Matters in 2026</h4>
-            <p class="text-muted small">An overview of ethical manufacturing, organic textile sourcing, and how changing your purchasing choices helps protect local ecosystems.</p>
-            <a href="#" class="text-success text-decoration-none fw-bold small">Read Full Article &rarr;</a>
-        </div>
 
-
-        <div class="col">
-            <div class="mb-3">
-                <img src="Picture/s-l400.jpg" alt="Accessorizing" class="img-fluid rounded-2 w-100 object-fit-cover" style="height: 250px;">
+            <!-- Blog Card 2 -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop" alt="Summer Essentials Wardrobe">
+                        <span class="blog-badge">Lookbook</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i> June 08, 2026</span>
+                            <span><i class="bi bi-clock me-1"></i> 3 min read</span>
+                        </div>
+                        <h4 class="blog-title">10 Summer Essentials for Your Closet</h4>
+                        <p class="blog-excerpt">Explore must-have lightweight linens, breathable cottons, and key sunwear pieces required to survive the heat with style.</p>
+                        <a href="javascript:void(0)" onclick="readArticle('10 Summer Essentials for Your Closet')" class="read-more-link">
+                            Read Full Article <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="text-secondary small mb-1">May 15, 2026</p>
-            <h4 class="fw-bold text-dark fs-5">How to Accessorize Like a Professional Stylist</h4>
-            <p class="text-muted small">Learn simple rules for balancing metals, layering delicate necklaces, and matching bags with belts to tie your entire seasonal outfit ensemble together.</p>
-            <a href="#" class="text-success text-decoration-none fw-bold small">Read Full Article &rarr;</a>
+
+            <!-- Blog Card 3 -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=800&auto=format&fit=crop" alt="Sustainable Fashion Fabric">
+                        <span class="blog-badge">Eco Trend</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i> May 29, 2026</span>
+                            <span><i class="bi bi-clock me-1"></i> 5 min read</span>
+                        </div>
+                        <h4 class="blog-title">Why Sustainable Fashion Matters in 2026</h4>
+                        <p class="blog-excerpt">An overview of ethical manufacturing, organic textile sourcing, and how changing your purchasing choices protects ecosystems.</p>
+                        <a href="javascript:void(0)" onclick="readArticle('Why Sustainable Fashion Matters in 2026')" class="read-more-link">
+                            Read Full Article <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 4 -->
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop" alt="Accessorizing Jewelry and Bags">
+                        <span class="blog-badge">Styling Tips</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i> May 15, 2026</span>
+                            <span><i class="bi bi-clock me-1"></i> 4 min read</span>
+                        </div>
+                        <h4 class="blog-title">How to Accessorize Like a Stylist</h4>
+                        <p class="blog-excerpt">Learn simple rules for balancing metals, layering subtle chains, and matching bags with belts to tie your seasonal outfit together.</p>
+                        <a href="javascript:void(0)" onclick="readArticle('How to Accessorize Like a Stylist')" class="read-more-link">
+                            Read Full Article <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- ==========================================
+         About & Newsletter Banner
+         ========================================== -->
+    <section class="container my-4" id="About">
+        <div class="newsletter-section">
+            <div class="row align-items-center g-3">
+                <div class="col-lg-6">
+                    <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold mb-1 small">STAY CONNECTED</span>
+                    <h4 class="fw-bold text-white mb-1">Sign Up For 20% Off Your First Order</h4>
+                    <p class="text-light mb-0 opacity-80 small">Get E-mail updates about our latest apparel drops, flash discounts, and VIP offers.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form onsubmit="handleNewsletter(event)">
+                        <div class="newsletter-input-group">
+                            <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required>
+                            <button type="submit" class="btn btn-dark">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="bg-light border-top text-dark pt-5 pb-4 mt-5" style="background-color: #E3E6F3 !important;">
+    <!-- ==========================================
+         Footer Section
+         ========================================== -->
+    <footer id="Contact">
         <div class="container text-md-start text-center">
             <div class="row g-4">
                 
+                <!-- Col 1: Brand Info -->
                 <div class="col-12 col-md-6 col-lg-4">
-                    <h4 class="fw-bold mb-4" style="color: #088178;">C-Shop</h4>
-                    <p class="mb-2 fw-semibold">Contact Information</p>
-                    <p class="text-secondary mb-1"><span class="fw-medium text-dark">Address: </span> Russian Federation Blvd (110), Phnom Penh</p>
-                    <p class="text-secondary mb-1"><span class="fw-medium text-dark">Phone: </span> +855 23 883 456</p>
-                    <p class="text-secondary mb-3"><span class="fw-medium text-dark">Hours: </span> 10:00 - 18:00, Mon - Sat</p>
+                    <div class="d-flex align-items-center gap-2 mb-2 justify-content-md-start justify-content-center">
+                        <div class="brand-icon">
+                            <i class="bi bi-bag-heart-fill"></i>
+                        </div>
+                        <h4 class="fw-bold mb-0 text-white">C-Shop</h4>
+                    </div>
+                    <p class="text-secondary small mb-2">Your premier destination for contemporary apparel, streetwear essentials, and lifestyle accessories designed for everyday confidence.</p>
                     
-                    <div class="d-flex justify-content-md-start justify-content-center gap-3 fs-5 mt-3">
-                        <a href="#" class="text-secondary hover-teal"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-secondary hover-teal"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="text-secondary hover-teal"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-secondary hover-teal"><i class="bi bi-pinterest"></i></a>
-                        <a href="#" class="text-secondary hover-teal"><i class="bi bi-youtube"></i></a>
+                    <p class="mb-1 text-secondary small"><strong class="text-white">Address:</strong> Russian Federation Blvd (110), Phnom Penh</p>
+                    <p class="mb-1 text-secondary small"><strong class="text-white">Phone:</strong> +855 23 883 456 / +855 12 345 678</p>
+                    <p class="mb-2 text-secondary small"><strong class="text-white">Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+                    
+                    <div class="d-flex justify-content-md-start justify-content-center gap-2 mt-2">
+                        <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://pinterest.com" target="_blank" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <h6 class="fw-bold mb-4">About</h6>
-                    <ul class="list-unstyled d-flex flex-column gap-2 small">
-                        <li><a href="#About" class="text-secondary text-decoration-none hover-teal">About Us</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">Delivery Information</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">Privacy Policy</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">Terms & Conditions</a></li>
-                        <li><a href="#Contact" class="text-secondary text-decoration-none hover-teal">Contact Us</a></li>
+                <!-- Col 2: Quick Links -->
+                <div class="col-6 col-sm-6 col-lg-2">
+                    <h6 class="fw-bold mb-2 text-white">Quick Links</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-1 small">
+                        <li><a href="#Home">Home</a></li>
+                        <li><a href="#Shop">All Products</a></li>
+                        <li><a href="#Deals">Flash Deals</a></li>
+                        <li><a href="#Blog">Fashion Blog</a></li>
+                        <li><a href="#About">About Our Brand</a></li>
+                        <li><a href="#Contact">Store Locator</a></li>
                     </ul>
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <h6 class="fw-bold mb-4">My Account</h6>
-                    <ul class="list-unstyled d-flex flex-column gap-2 small">
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">Sign In</a></li>
-                        <li><a href="#Cart" class="text-secondary text-decoration-none hover-teal">View Cart</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">My Wishlist</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">Track My Order</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none hover-teal">Help</a></li>
+                <!-- Col 3: Customer Service -->
+                <div class="col-6 col-sm-6 col-lg-2">
+                    <h6 class="fw-bold mb-2 text-white">Customer Care</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-1 small">
+                        <li><a href="javascript:void(0)" onclick="showInfoModal('Delivery Policy', 'We offer standard delivery (3-5 business days) and express delivery (1-2 business days). Free shipping applies on all orders over $50.')">Delivery Info</a></li>
+                        <li><a href="javascript:void(0)" onclick="showInfoModal('Returns & Exchanges', 'Items can be returned within 30 days of receipt in unworn condition with tags attached.')">Easy Returns</a></li>
+                        <li><a href="javascript:void(0)" onclick="showInfoModal('Privacy Policy', 'We value your privacy. Your personal information is encrypted with bank-level 256-bit SSL security.')">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" onclick="showInfoModal('Terms of Service', 'By using C-Shop, you agree to our standard customer protection rules and secure checkout terms.')">Terms of Service</a></li>
+                        <li><a href="javascript:void(0)" onclick="openWishlist()">My Wishlist</a></li>
+                        <li><a href="javascript:void(0)" onclick="showInfoModal('Order Tracking', 'Enter your order ID sent via email to track live carrier shipment status.')">Track My Order</a></li>
                     </ul>
                 </div>
 
+                <!-- Col 4: Mobile App & Payments -->
                 <div class="col-12 col-md-6 col-lg-4">
-                    <h6 class="fw-bold mb-4">Install App</h6>
-                    <p class="text-secondary small">From App Store or Google Play</p>
+                    <h6 class="fw-bold mb-2 text-white">Download Mobile App</h6>
+                    <p class="text-secondary small mb-2">Shop directly from your phone with exclusive in-app coupons.</p>
 
-                    <div class="d-flex justify-content-md-start justify-content-center gap-2 mb-4">
-                        <button class="btn btn-outline-dark btn-sm d-flex align-items-center py-2 px-3 rounded-3 shadow-none">
-                            <i class="bi bi-apple me-2 fs-5"></i>
-                            <span class="text-start lh-1"><span class="fw-bold small">App Store</span></span>
-                        </button>
-                        <button class="btn btn-outline-dark btn-sm d-flex align-items-center py-2 px-3 rounded-3 shadow-none">
-                            <i class="bi bi-play-btn-fill me-2 fs-5"></i>
-                            <span class="text-start lh-1"><span class="fw-bold small">Google Play</span></span>
-                        </button>
+                    <div class="d-flex justify-content-md-start justify-content-center gap-2 mb-3">
+                        <a href="javascript:void(0)" class="app-store-btn">
+                            <i class="bi bi-apple fs-5"></i>
+                            <div class="text-start">
+                                <div style="font-size: 0.62rem;" class="text-secondary">Download on</div>
+                                <div class="fw-bold small" style="font-size: 0.8rem;">App Store</div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0)" class="app-store-btn">
+                            <i class="bi bi-google-play fs-5 text-warning"></i>
+                            <div class="text-start">
+                                <div style="font-size: 0.62rem;" class="text-secondary">Get it on</div>
+                                <div class="fw-bold small" style="font-size: 0.8rem;">Google Play</div>
+                            </div>
+                        </a>
                     </div>
 
-                    <p class="text-secondary small">Secured Payment Gateways</p>
-
-                    <div class="d-flex justify-content-md-start justify-content-center gap-3 fs-3 text-secondary">
-                        <i class="bi bi-credit-card-2-back"></i>
-                        <i class="bi bi-wallet2"></i>
-                        <i class="bi bi-paypal"></i>
+                    <h6 class="fw-bold mb-1 text-white small">Secured Payment Gateways</h6>
+                    <div class="d-flex justify-content-md-start justify-content-center gap-3 fs-4 text-secondary">
+                        <i class="bi bi-credit-card-2-back hover-teal" title="Visa / Mastercard"></i>
+                        <i class="bi bi-wallet2 hover-teal" title="Digital Wallet"></i>
+                        <i class="bi bi-paypal hover-teal" title="PayPal"></i>
+                        <i class="bi bi-shield-check hover-teal text-success" title="SSL Encrypted"></i>
                     </div>
                 </div>
 
             </div>
 
-            <hr class="my-4 text-muted opacity-25">
+            <hr class="my-3 border-secondary opacity-25">
 
-            <div class="row align-items-center">
+            <div class="row align-items-center pb-2">
                 <div class="col-12 text-center">
-                    <p class="text-secondary small mb-0">&copy; 2026, <span class="fw-bold" style="color: #088178;">C-Shop</span> - HTML CSS Bootstrap Ecommerce Template</p>
+                    <p class="text-secondary small mb-0">&copy; 2026 <strong class="text-white">C-Shop</strong> &bull; Crafted with Modern Bootstrap 5 &amp; Clean UX Design.</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- ==========================================
+         Shopping Cart Offcanvas Drawer
+         ========================================== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header border-bottom py-2">
+            <h6 class="offcanvas-title fw-bold mb-0" id="cartOffcanvasLabel">
+                <i class="bi bi-bag-check-fill text-teal me-1"></i> Your Shopping Bag (<span id="cartTotalItemsCount">2</span>)
+            </h6>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column p-3">
+            
+            <!-- Free Shipping Progress -->
+            <div class="bg-light p-2 rounded-3 mb-2">
+                <div class="d-flex justify-content-between small fw-semibold mb-1" style="font-size: 0.78rem;">
+                    <span id="shippingNotice"><i class="bi bi-truck text-teal"></i> Add $23 more for <strong>FREE Shipping</strong></span>
+                    <span class="text-teal fw-bold" id="shippingPercentText">75%</span>
+                </div>
+                <div class="free-shipping-bar">
+                    <div class="free-shipping-progress" id="shippingProgressBar" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <!-- Cart Items List Container -->
+            <div class="cart-items-container flex-grow-1 overflow-auto pe-1" id="cartItemsList">
+                <!-- Dynamic Items will be rendered here by JS -->
+            </div>
+
+            <!-- Cart Summary & Checkout -->
+            <div class="border-top pt-2 mt-auto">
+                <div class="d-flex justify-content-between mb-1 small">
+                    <span class="text-muted">Subtotal:</span>
+                    <span class="fw-bold" id="cartSubtotal">$177.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span class="text-muted">Estimated Tax & Shipping:</span>
+                    <span class="text-success fw-semibold">FREE</span>
+                </div>
+                <div class="d-flex justify-content-between fs-6 fw-bold mb-2 border-top pt-1">
+                    <span>Total:</span>
+                    <span class="text-teal" id="cartTotalAmount">$177.00</span>
+                </div>
+                <a href="cart.html" class="btn btn-primary-custom w-100 py-2 mb-1 text-center text-decoration-none">
+                    Proceed to Checkout <i class="bi bi-arrow-right"></i>
+                </a>
+                <button class="btn btn-outline-secondary w-100 btn-sm py-1" data-bs-dismiss="offcanvas">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         Quick View Product Modal
+         ========================================== -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 pt-0">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-6">
+                            <div class="rounded-3 overflow-hidden bg-light border text-center">
+                                <img src="" id="qvImage" class="img-fluid" style="max-height: 280px; width: 100%; object-fit: cover;" alt="Product preview">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge bg-teal-light text-teal px-2 py-1 rounded-pill fw-semibold mb-1 small" id="qvCategory">Category</span>
+                            <h5 class="fw-bold mb-1" id="qvTitle">Product Title</h5>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="stars text-warning small">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <span class="text-muted" style="font-size: 0.75rem;">(4.9 rating / 120+ reviews)</span>
+                            </div>
+                            <div class="d-flex align-items-baseline gap-2 mb-2">
+                                <h4 class="fw-bold text-teal mb-0" id="qvPrice">$58</h4>
+                                <span class="text-muted text-decoration-line-through small" id="qvOldPrice">$78</span>
+                                <span class="badge bg-danger ms-1" style="font-size: 0.7rem;">Save 25%</span>
+                            </div>
+                            <p class="text-muted small mb-2" id="qvDescription">
+                                Premium quality fabric engineered for everyday breathability, durability, and a comfortable modern silhouette.
+                            </p>
+
+                            <!-- Size Picker -->
+                            <div class="mb-2">
+                                <label class="form-label small fw-bold mb-1">Select Size:</label>
+                                <div class="d-flex gap-1">
+                                    <button type="button" class="btn btn-outline-dark btn-sm rounded-2 px-2 py-1 active" style="font-size: 0.78rem;">S</button>
+                                    <button type="button" class="btn btn-outline-dark btn-sm rounded-2 px-2 py-1" style="font-size: 0.78rem;">M</button>
+                                    <button type="button" class="btn btn-outline-dark btn-sm rounded-2 px-2 py-1" style="font-size: 0.78rem;">L</button>
+                                    <button type="button" class="btn btn-outline-dark btn-sm rounded-2 px-2 py-1" style="font-size: 0.78rem;">XL</button>
+                                </div>
+                            </div>
+
+                            <!-- Quantity & Action -->
+                            <div class="d-flex gap-2 mt-3">
+                                <div class="input-group input-group-sm" style="width: 100px;">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="adjustQvQty(-1)">-</button>
+                                    <input type="text" id="qvQuantity" class="form-control text-center bg-white" value="1" readonly>
+                                    <button class="btn btn-outline-secondary" type="button" onclick="adjustQvQty(1)">+</button>
+                                </div>
+                                <button class="btn btn-primary-custom flex-grow-1 py-1" id="qvAddToCartBtn">
+                                    <i class="bi bi-cart-plus me-1"></i> Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         General Information Modal (Terms / Articles)
+         ========================================== -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h6 class="modal-title fw-bold" id="infoModalTitle">Information</h6>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3">
+                    <p class="text-secondary small mb-0" id="infoModalBody">Content details...</p>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-primary-custom btn-sm py-1 px-3" data-bs-dismiss="modal">Got it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         Mobile Bottom Navigation Bar (Phone Bottom Bar)
+         ========================================== -->
+    <nav class="mobile-bottom-nav d-lg-none" aria-label="Mobile Bottom Navigation">
+        <div class="nav-row">
+            <a href="#Home" class="mobile-nav-item active">
+                <i class="bi bi-house-door"></i>
+                <span>Home</span>
+            </a>
+            <a href="#Shop" class="mobile-nav-item">
+                <i class="bi bi-grid"></i>
+                <span>Shop</span>
+            </a>
+            <a href="#Deals" class="mobile-nav-item">
+                <i class="bi bi-lightning-charge"></i>
+                <span>Deals</span>
+            </a>
+            <a href="#Blog" class="mobile-nav-item">
+                <i class="bi bi-journal-text"></i>
+                <span>Blog</span>
+            </a>
+            <a href="javascript:void(0)" class="mobile-nav-item position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                <i class="bi bi-bag"></i>
+                <span class="mobile-nav-badge" id="mobileCartBadge">2</span>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- ==========================================
+         Scripts & Application Logic
+         ========================================== -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        function scrollToShop() {
-        const shopSection = document.getElementById("Shop");
-        shopSection.scrollIntoView({ behavior: 'smooth' });
+        // Products Database with unique details and pictures
+        const productsDB = [
+            {
+                id: 1,
+                title: "Cartoon Astronaut Heavyweight Tee",
+                category: "Graphic Tees",
+                price: 58,
+                oldPrice: 78,
+                image: "Picture/s-l400.jpg",
+                desc: "Crafted with 100% heavyweight 240GSM cotton. Features high-definition screen printing, reinforced crew neckline, and comfortable oversized fit."
+            },
+            {
+                id: 2,
+                title: "Retro Urban Air Sneakers",
+                category: "Footwear",
+                price: 119,
+                oldPrice: 145,
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop",
+                desc: "Ergonomic street sneakers with dual-density foam midsoles, breathable mesh accents, and slip-resistant rubber traction outsole."
+            },
+            {
+                id: 3,
+                title: "Vintage Washed Denim Jacket",
+                category: "Jackets",
+                price: 89,
+                oldPrice: 110,
+                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop",
+                desc: "Classic trucker cut washed in authentic indigo vintage tint with durable copper button fasteners and dual chest pockets."
+            },
+            {
+                id: 4,
+                title: "Minimalist Chronograph Watch",
+                category: "Accessories",
+                price: 149,
+                oldPrice: 180,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                desc: "Sleek 316L stainless steel case with sapphire crystal glass, Japanese quartz movement, and genuine Italian leather quick-release strap."
+            },
+            {
+                id: 5,
+                title: "Relaxed Linen Oxford Shirt",
+                category: "Shirts",
+                price: 49,
+                oldPrice: 65,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop",
+                desc: "Breathable natural linen-cotton blend designed for summer heat and smart-casual layering with mother-of-pearl buttons."
+            },
+            {
+                id: 6,
+                title: "Sage Heavyweight Fleece Hoodie",
+                category: "Hoodies",
+                price: 74,
+                oldPrice: 92,
+                image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop",
+                desc: "Plush 450GSM organic brushed cotton fleece with double-lined hood, seamless kangaroo pocket, and ribbed side ribbing."
+            },
+            {
+                id: 7,
+                title: "Tortoise Acetate UV400 Sunglasses",
+                category: "Eyewear",
+                price: 39,
+                oldPrice: 60,
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop",
+                desc: "Handcrafted cellulose acetate frame with glare-reducing polarized lenses offering 100% UVA/UVB protection."
+            },
+            {
+                id: 8,
+                title: "Matte Urban Commuter Backpack",
+                category: "Bags",
+                price: 65,
+                oldPrice: 85,
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop",
+                desc: "Weatherproof 900D coated nylon featuring dedicated 16-inch padded laptop compartment, waterproof zippers, and hidden passport pocket."
+            }
+        ];
+
+        // State variables
+        let cart = [
+            { id: 1, title: "Cartoon Astronaut Heavyweight Tee", price: 58, qty: 1, image: "Picture/s-l400.jpg" },
+            { id: 2, title: "Retro Urban Air Sneakers", price: 119, qty: 1, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" }
+        ];
+        let wishlist = [];
+
+        // Initialize UI
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            initCountdown();
+
+            // Navbar scroll & ScrollSpy listener
+            const sections = document.querySelectorAll('section[id], footer[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('mainNavbar');
+                const btt = document.getElementById('backToTop');
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                    btt.classList.add('show');
+                } else {
+                    navbar.classList.remove('scrolled');
+                    btt.classList.remove('show');
+                }
+
+                // Smooth ScrollSpy
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                if (current) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Cart Management
+        function renderCart() {
+            const listEl = document.getElementById('cartItemsList');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const totalEl = document.getElementById('cartTotalAmount');
+            const badgeEl = document.getElementById('cartBadgeCount');
+            const countEl = document.getElementById('cartTotalItemsCount');
+            const shippingBar = document.getElementById('shippingProgressBar');
+            const shippingText = document.getElementById('shippingNotice');
+            const shippingPercent = document.getElementById('shippingPercentText');
+
+            if (!listEl) return;
+
+            if (cart.length === 0) {
+                listEl.innerHTML = `
+                    <div class="text-center py-4 text-muted">
+                        <i class="bi bi-cart-x fs-2 text-secondary mb-2 d-block"></i>
+                        <p class="small mb-2">Your shopping bag is empty.</p>
+                        <a href="#Shop" class="btn btn-primary-custom btn-sm" data-bs-dismiss="offcanvas">Start Shopping</a>
+                    </div>
+                `;
+                subtotalEl.innerText = "$0.00";
+                totalEl.innerText = "$0.00";
+                badgeEl.innerText = "0";
+                countEl.innerText = "0";
+                shippingBar.style.width = "0%";
+                shippingPercent.innerText = "0%";
+                shippingText.innerHTML = `<i class="bi bi-truck text-teal"></i> Add $50 for <strong>FREE Shipping</strong>`;
+                return;
+            }
+
+            let subtotal = 0;
+            let totalQty = 0;
+            let html = '';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                totalQty += item.qty;
+
+                html += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-bold text-dark small text-truncate" style="max-width: 150px; font-size: 0.82rem;">${item.title}</h6>
+                            <div class="text-teal fw-bold small mb-1">$${item.price}</div>
+                            <div class="d-flex align-items-center gap-1">
+                                <button class="cart-qty-btn" onclick="updateQty(${index}, -1)" aria-label="Decrease">-</button>
+                                <span class="small fw-semibold px-1" style="font-size: 0.8rem;">${item.qty}</span>
+                                <button class="cart-qty-btn" onclick="updateQty(${index}, 1)" aria-label="Increase">+</button>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <div class="fw-bold small mb-1">$${itemTotal}</div>
+                            <button class="btn btn-link text-danger p-0 small text-decoration-none" onclick="removeFromCart(${index})" title="Remove">
+                                <i class="bi bi-trash3" style="font-size: 0.85rem;"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listEl.innerHTML = html;
+            subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+            totalEl.innerText = `$${subtotal.toFixed(2)}`;
+            badgeEl.innerText = totalQty;
+            countEl.innerText = totalQty;
+            const mobileBadge = document.getElementById('mobileCartBadge');
+            if (mobileBadge) mobileBadge.innerText = totalQty;
+
+            // Free shipping logic ($50 threshold)
+            const threshold = 50;
+            if (subtotal >= threshold) {
+                shippingBar.style.width = "100%";
+                shippingPercent.innerText = "100%";
+                shippingText.innerHTML = `<i class="bi bi-check-circle-fill text-success"></i> You have unlocked <strong>FREE Shipping!</strong>`;
+            } else {
+                const percent = Math.min(100, Math.round((subtotal / threshold) * 100));
+                const remaining = (threshold - subtotal).toFixed(2);
+                shippingBar.style.width = `${percent}%`;
+                shippingPercent.innerText = `${percent}%`;
+                shippingText.innerHTML = `<i class="bi bi-truck text-teal"></i> Add $${remaining} more for <strong>FREE Shipping</strong>`;
+            }
+        }
+
+        function addToCart(id, title, price, image) {
+            const existingIndex = cart.findIndex(item => item.id === id);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ id, title, price, qty: 1, image });
+            }
+            renderCart();
+            showToast(`Added <strong>${title}</strong> to your shopping bag!`);
+        }
+
+        function updateQty(index, change) {
+            if (cart[index]) {
+                cart[index].qty += change;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+                renderCart();
+            }
+        }
+
+        function removeFromCart(index) {
+            if (cart[index]) {
+                const removedTitle = cart[index].title;
+                cart.splice(index, 1);
+                renderCart();
+                showToast(`Removed <strong>${removedTitle}</strong> from cart.`, 'danger');
+            }
+        }
+
+        function checkoutOrder() {
+            if (cart.length === 0) {
+                showToast('Your bag is empty! Add items first.', 'warning');
+                return;
+            }
+            showToast('🎉 Thank you! Redirecting to secure checkout payment...', 'success');
+        }
+
+        // Wishlist Toggle
+        function toggleWishlist(productId, btnElement) {
+            const index = wishlist.indexOf(productId);
+            const heartIcon = btnElement.querySelector('i');
+            
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                btnElement.classList.remove('active-wishlist');
+                heartIcon.className = 'bi bi-heart';
+                showToast('Removed item from Wishlist.', 'secondary');
+            } else {
+                wishlist.push(productId);
+                btnElement.classList.add('active-wishlist');
+                heartIcon.className = 'bi bi-heart-fill text-danger';
+                showToast('Added item to your Wishlist!', 'success');
+            }
+            document.getElementById('wishlistCount').innerText = wishlist.length;
+        }
+
+        function openWishlist() {
+            if (wishlist.length === 0) {
+                showToast('Your wishlist is currently empty! Click the heart icon on any product to save it.', 'secondary');
+            } else {
+                showInfoModal('My Wishlist', `You currently have ${wishlist.length} saved product(s) in your wishlist!`);
+            }
+        }
+
+        // Quick View Modal
+        let currentQvQty = 1;
+        let currentQvProduct = null;
+
+        function openQuickView(id) {
+            const product = productsDB.find(p => p.id === id);
+            if (!product) return;
+            currentQvProduct = product;
+            currentQvQty = 1;
+
+            document.getElementById('qvImage').src = product.image;
+            document.getElementById('qvCategory').innerText = product.category;
+            document.getElementById('qvTitle').innerText = product.title;
+            document.getElementById('qvPrice').innerText = `$${product.price}`;
+            document.getElementById('qvOldPrice').innerText = `$${product.oldPrice}`;
+            document.getElementById('qvDescription').innerText = product.desc;
+            document.getElementById('qvQuantity').value = 1;
+
+            const addBtn = document.getElementById('qvAddToCartBtn');
+            addBtn.onclick = function() {
+                for (let i = 0; i < currentQvQty; i++) {
+                    const existingIndex = cart.findIndex(item => item.id === product.id);
+                    if (existingIndex > -1) {
+                        cart[existingIndex].qty += 1;
+                    } else {
+                        cart.push({ id: product.id, title: product.title, price: product.price, qty: 1, image: product.image });
+                    }
+                }
+                renderCart();
+                const modalEl = document.getElementById('quickViewModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
+                showToast(`Added ${currentQvQty} x <strong>${product.title}</strong> to bag!`);
+            };
+
+            const qvModal = new bootstrap.Modal(document.getElementById('quickViewModal'));
+            qvModal.show();
+        }
+
+        function adjustQvQty(delta) {
+            currentQvQty = Math.max(1, currentQvQty + delta);
+            document.getElementById('qvQuantity').value = currentQvQty;
+        }
+
+        // Category Filter
+        function filterProducts(category, button) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Filter
+        function filterBySearch() {
+            const input = document.getElementById('navbarSearchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                const title = item.querySelector('.product-title').innerText.toLowerCase();
+                const cat = item.querySelector('.category-name').innerText.toLowerCase();
+                if (title.includes(input) || cat.includes(input)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Flash Deal Countdown Timer
+        function initCountdown() {
+            let totalSeconds = 2 * 24 * 3600 + 18 * 3600 + 45 * 60 + 20;
+            setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    const days = Math.floor(totalSeconds / (24 * 3600));
+                    const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
+                    const mins = Math.floor((totalSeconds % 3600) / 60);
+                    const secs = totalSeconds % 60;
+
+                    document.getElementById('timerDays').innerText = days.toString().padStart(2, '0');
+                    document.getElementById('timerHours').innerText = hours.toString().padStart(2, '0');
+                    document.getElementById('timerMins').innerText = mins.toString().padStart(2, '0');
+                    document.getElementById('timerSecs').innerText = secs.toString().padStart(2, '0');
+                }
+            }, 1000);
+        }
+
+        // Toast Feedback Message
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast-custom';
+            
+            let iconClass = 'bi bi-check-circle-fill text-success fs-5';
+            if (type === 'danger') iconClass = 'bi bi-trash-fill text-danger fs-5';
+            if (type === 'warning') iconClass = 'bi bi-exclamation-triangle-fill text-warning fs-5';
+            if (type === 'secondary') iconClass = 'bi bi-info-circle-fill text-primary fs-5';
+
+            toast.innerHTML = `
+                <i class="${iconClass}"></i>
+                <div class="small">${message}</div>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                toast.style.transition = 'all 0.25s ease';
+                setTimeout(() => toast.remove(), 250);
+            }, 2800);
+        }
+
+        // Newsletter Subscription Handler
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            if (emailInput.value) {
+                showToast(`🎉 Thanks for subscribing! A 20% coupon has been sent to <strong>${emailInput.value}</strong>`);
+                emailInput.value = '';
+            }
+        }
+
+        // Info Modal
+        function showInfoModal(title, content) {
+            document.getElementById('infoModalTitle').innerText = title;
+            document.getElementById('infoModalBody').innerText = content;
+            const modal = new bootstrap.Modal(document.getElementById('infoModal'));
+            modal.show();
+        }
+
+        function readArticle(title) {
+            showInfoModal(title, "Explore our curated guide for styling tips, sustainable textile recommendations, and seasonal trend forecasts written by C-Shop fashion editors.");
         }
     </script>
-    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | C-Shop</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand text-decoration-none" href="index.html">
+                    <div class="brand-icon"><i class="bi bi-bag-heart-fill"></i></div>
+                    <span class="fw-bold" style="color: #088178;">C-Shop</span>
+                </a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <i class="bi bi-list fs-3 text-dark"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-1">
+                        <li class="nav-item"><a class="nav-link" href="index.html#Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Shop">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Deals">Deals</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#Blog">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#About">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html#Contact">Contact</a></li>
+                    </ul>
+                    <div class="nav-icons-group">
+                        <a href="javascript:void(0)" class="nav-icon-btn" onclick="alert('You have 0 saved items in your Wishlist.')" title="Wishlist">
+                            <i class="bi bi-heart"></i>
+                            <span class="nav-badge">0</span>
+                        </a>
+                        <a href="cart.html" class="nav-icon-btn" title="Shopping Cart">
+                            <i class="bi bi-bag"></i>
+                            <span class="nav-badge">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="bg-light py-4" style="margin-top: 60px; border-bottom: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <span class="badge bg-teal-light text-teal px-3 py-1 rounded-pill fw-semibold mb-1">#GetInTouch</span>
+            <h2 class="fw-bold mb-1">Contact Customer Care</h2>
+            <p class="text-muted small mb-0">We'd love to hear from you. Get 24/7 assistance from our support team.</p>
+        </div>
+    </div>
+
+    <!-- Contact Form & Info -->
+    <div class="container my-5">
+        <div class="row g-4">
+            
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm rounded-3 p-4 bg-light h-100">
+                    <h5 class="fw-bold mb-3">Headquarters</h5>
+                    <p class="text-secondary small mb-3">Russian Federation Blvd (110), Phnom Penh, Cambodia</p>
+                    
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="brand-icon"><i class="bi bi-telephone"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Phone Support</small>
+                            <span class="fw-bold small">+855 23 883 456</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="brand-icon"><i class="bi bi-envelope"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Email Inquiry</small>
+                            <span class="fw-bold small">support@c-shop.com</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="brand-icon"><i class="bi bi-clock"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Operating Hours</small>
+                            <span class="fw-bold small">Mon - Sat (10:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm rounded-3 p-4">
+                    <h5 class="fw-bold mb-3">Send Us a Message</h5>
+                    <form onsubmit="handleContact(event)">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Your Name</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Email Address</label>
+                                <input type="email" class="form-control form-control-sm" placeholder="john@example.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Subject</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Order inquiry, sizing help..." required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Message</label>
+                                <textarea class="form-control form-control-sm" rows="4" placeholder="How can we assist you today?" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary-custom">Send Message <i class="bi bi-send ms-1"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="Contact">
+        <div class="container text-center text-secondary small py-3">
+            <p class="mb-0">&copy; 2026 <strong class="text-white">C-Shop</strong>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav d-lg-none" aria-label="Mobile Navigation">
+        <div class="nav-row">
+            <a href="index.html#Home" class="mobile-nav-item">
+                <i class="bi bi-house-door"></i>
+                <span>Home</span>
+            </a>
+            <a href="shop.html" class="mobile-nav-item">
+                <i class="bi bi-grid"></i>
+                <span>Shop</span>
+            </a>
+            <a href="index.html#Deals" class="mobile-nav-item">
+                <i class="bi bi-lightning-charge"></i>
+                <span>Deals</span>
+            </a>
+            <a href="blog.html" class="mobile-nav-item">
+                <i class="bi bi-journal-text"></i>
+                <span>Blog</span>
+            </a>
+            <a href="cart.html" class="mobile-nav-item position-relative">
+                <i class="bi bi-bag"></i>
+                <span class="mobile-nav-badge">2</span>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Toast Notification -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleContact(e) {
+            e.preventDefault();
+            const container = document.getElementById('toastContainer');
+            const t = document.createElement('div');
+            t.className = 'toast-custom';
+            t.innerHTML = `<i class="bi bi-check-circle-fill text-success fs-5"></i><div class="small">Message sent! We'll reply within 24 hours.</div>`;
+            container.appendChild(t);
+            setTimeout(() => t.remove(), 2800);
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
